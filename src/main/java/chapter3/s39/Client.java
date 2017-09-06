@@ -20,3 +20,8 @@ public class Client {
         System.out.println(a2.getClass() == a3.getClass());
     }
 }
+/**
+ * false
+   false
+   false
+ */

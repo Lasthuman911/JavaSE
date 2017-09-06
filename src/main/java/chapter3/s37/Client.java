@@ -1,6 +1,7 @@
 package chapter3.s37;
 
 /**
+ * 构造代码块会想你所想
  * Created by zhiming.wu on 2017/9/4.
  */
 public class Client {
@@ -36,3 +37,7 @@ class Base {
     }
 
 }
+/**
+ * 产生的实例的数量=3
+ * ***不是4
+ */

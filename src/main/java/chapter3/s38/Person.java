@@ -1,6 +1,7 @@
 package chapter3.s38;
 
 /**
+ * 静态内部类-语义更加明确
  * Created by zhiming.wu on 2017/9/4.
  */
 public class Person {
@@ -37,7 +38,6 @@ public class Person {
         private String address;
         private String tel;
 
-
         public String getAddress() {
             return address;
         }
@@ -57,6 +57,6 @@ public class Person {
 
     public static void main(String[] args) {
         Person person = new Person("张三");
-        person.setHome(new Person.Home("上海", "021"));
+        person.setHome(new Person.Home("上海", "021"));//Person.Home
     }
 }
