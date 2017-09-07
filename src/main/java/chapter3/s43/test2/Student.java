@@ -6,12 +6,14 @@ package chapter3.s43.test2;
  */
 public class Student extends Person {
     public static void main(String[] args) {
-/*        Student student = new Student();
+        Student student = new Student();
         System.out.println(student.a);
         System.out.println(student.getA());
+//        student.clone();//可以
 
         Person person = new Person();
+//        person.clone();//编译不通过
         System.out.println("person.a="+person.a);
-        System.out.println("person.getA()="+person.getA());*/
+        System.out.println("person.getA()="+person.getA());
     }
 }

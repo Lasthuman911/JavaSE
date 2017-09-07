@@ -11,8 +11,10 @@ public class Student extends Person{
         Student student = new Student();
         System.out.println(student.a);
         System.out.println(student.getA());
+//        student.clone();//这是可以的
 
         Person person = new Person();
+//        person.clone();//这是不可以的
 //        System.out.println("person.a="+person.a);//编译报错
 //        System.out.println("person.getA()="+person.getA());//编译报错
     }
