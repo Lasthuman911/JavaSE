@@ -26,9 +26,31 @@ public class Person {
         this.name = name;
     }
 
-    @Override
+    /**
+     * 测试错误的实例时候，请启用此equals
+     */
+   /* @Override
     public boolean equals(Object obj) {
         if (obj instanceof Person) {
+            Person p = (Person) obj;
+            if (p.getName() == null || name == null) {
+                return false;
+            } else {
+                //return name.equalsIgnoreCase(p.getName().trim());//注意这里的trim}
+                return name.equalsIgnoreCase(p.getName());//注意这里的trim}
+            }
+        }
+        return false;
+    } */
+
+    /**
+     * 改为getClass 进行判断
+     * @param obj
+     * @return
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && obj.getClass() == this.getClass()) {
             Person p = (Person) obj;
             if (p.getName() == null || name == null) {
                 return false;
@@ -42,6 +64,10 @@ public class Person {
 
     public static void main(String[] args) {
         //test1();
+        testNull();
+    }
+
+    private static void testNull() {
         Person p1 = new Person("zhangsan");
         Person p2 = new Person(null);
 
