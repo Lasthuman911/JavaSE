@@ -20,6 +20,29 @@ public class client {
 
 //        splitTest();//初版简易的计算单词数
 //        wordCounts();//建议57：使用正则表达式统计单词个数
+
+//        getSubString();//字符串截取
+//        getSubString2();//字符串截取2
+    }
+
+    /**
+     * 字符串截取
+     */
+    private static void getSubString2() {
+        String str = "com.wu.he";
+        int lastIndex = str.lastIndexOf(".");
+        System.out.println(lastIndex);
+        String subString = str.substring(lastIndex+1,str.length());
+        System.out.println(subString);
+    }
+
+    /**
+     * 字符串截取
+     */
+    private static void getSubString() {
+        String str = "wzmhaha";
+        String subStr = str.substring(0,3);
+        System.out.println(subStr);
     }
 
     /**
@@ -27,15 +50,15 @@ public class client {
      */
     private static void wordCounts() {
         Scanner input = new Scanner(System.in);
-        while (input.hasNext()){
+        while (input.hasNext()) {
             String str = input.nextLine();
             Pattern pattern = Pattern.compile("\\b\\w+\\b");//正则表达式对象
             Matcher matcher = pattern.matcher(str);//生成匹配器
             int wordsCount = 0;
-            while (matcher.find()){
+            while (matcher.find()) {
                 wordsCount++;
             }
-            System.out.println(str+" 单词数： "+wordsCount);
+            System.out.println(str + " 单词数： " + wordsCount);
         }
     }
 
@@ -44,10 +67,10 @@ public class client {
      */
     private static void splitTest() {
         Scanner input = new Scanner(System.in);
-        while (input.hasNext()){
+        while (input.hasNext()) {
             String str = input.nextLine();
             int wordsCount = str.split(" ").length;
-            System.out.println(str+" 单词数： "+wordsCount);
+            System.out.println(str + " 单词数： " + wordsCount);
         }
     }
 
