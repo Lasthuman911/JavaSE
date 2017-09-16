@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  */
 public class client {
     public static void main(String[] args) {
-//        testEquals();//test1:字符串常量池-建议52：多使用直接量
+        testEquals();//test1:字符串常量池-建议52：多使用直接量
 
 //        locationOfString();//建议55：注意字符串位置
 
@@ -32,7 +32,7 @@ public class client {
         String str = "com.wu.he";
         int lastIndex = str.lastIndexOf(".");
         System.out.println(lastIndex);
-        String subString = str.substring(lastIndex+1,str.length());
+        String subString = str.substring(lastIndex + 1, str.length());
         System.out.println(subString);
     }
 
@@ -41,7 +41,7 @@ public class client {
      */
     private static void getSubString() {
         String str = "wzmhaha";
-        String subStr = str.substring(0,3);
+        String subStr = str.substring(0, 3);
         System.out.println(subStr);
     }
 
@@ -129,9 +129,16 @@ public class client {
         String str2 = "wzm";
         String str3 = new String("wzm");
         String str4 = str3.intern();
+        String str5 = new String(str1);
 
         System.out.println("str1?=str2 = " + (str1 == str2));//两个直接量相等
+
         System.out.println("str1?=str3 = " + (str1 == str3));//直接量和new对象不相等
+        System.out.println("str1.equals(str3)=" + (str1.equals(str3)));
+
         System.out.println("str1?=str4 = " + (str1 == str4));//直接量和经过intern处理的对象相等
+
+        System.out.println("str1.equals(str5)=" + (str1.equals(str5)));
+        System.out.println("str1?=str5=" + (str1 == str5));
     }
 }
