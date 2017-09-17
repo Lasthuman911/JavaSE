@@ -1,10 +1,7 @@
 package com.wu.collection;
 
-import com.wu.collection.sort.Employee;
-import com.wu.collection.sort.Positon;
-import com.wu.collection.sort.PositonComparator;
+import com.wu.collection.sort.*;
 
-import java.net.StandardSocketOptions;
 import java.util.*;
 
 /**
@@ -41,6 +38,299 @@ public class Client {
 //        sortListbyPositon();//按照职位降序,使用sort的重载方式，自建一个排序类
 //        sortListByPositonAsc();//Collections.reverse 实现,或者 Collections.reverseOrder
 
+//        searchList();//测试查找具体某个数据
+
+//        equalStepWithCompare();//集合中的元素保持euqals和compareTo 同步
+
+//        addAllTest();//集合并集
+//        retainAllTest();//集合交集
+//        removeAllTest();//求差集
+//        allWithoutSame();//无重复的并集
+
+//        disruptListTest1();//打乱列表-初级
+//        disruptListTest2();//打乱列表-中级
+//        disrutpList();//打乱列表-终级
+
+//        getCurrentTimeTest();//获取当前时间
+//        FindSomthingTest();//map查找的效率是list的40倍
+
+//        threadTest();//同步修改异常，这和是否用Vectory或者ArrayList无关
+//        threadTest2();//TODO 多线程测试-有出入
+
+//        treeSetTest();//初始化之后改变原set后排序
+//        treeSetTest2();//初始化之后改变原set后排序-重构
+
+    }
+
+    /**
+     * 修改后重新排序即可升序
+     */
+    private static void treeSetTest2() {
+        SortedSet<Person> sortedSet = new TreeSet<>();
+        sortedSet.add(new Person(175));
+        sortedSet.add(new Person(180));
+
+        sortedSet.first().setHeight(187);//随着时间推移，矮个子长大了,但是输出没有升序
+
+        sortedSet = new TreeSet<>(new ArrayList<>(sortedSet));//set重新排序-重点
+        for (Person p : sortedSet){
+            System.out.println(p.getHeight());
+        }
+    }
+
+    /**
+     * TreeSet 只能保证加入元素时的升序，不能保证修改后的排序
+     */
+    private static void treeSetTest() {
+        SortedSet<Person> sortedSet = new TreeSet<>();
+        sortedSet.add(new Person(175));
+        sortedSet.add(new Person(180));
+
+        sortedSet.first().setHeight(187);//随着时间推移，矮个子长大了,但是输出没有升序
+        for (Person p : sortedSet){
+            System.out.println(p.getHeight());
+        }
+    }
+
+    /**
+     * TODO 多线程测试
+     */
+    private static void threadTest2() {
+        //final Vector<String> tickets = new Vector<>();
+       final List<String> tickets = new ArrayList<>();
+        //初始化票据池
+        for (int i = 0; i < 100; i++) {
+            tickets.add(i, "火车票 " + i);
+        }
+        //10个售票窗口
+        for (int i = 0;i < 10; i++){
+            new Thread(){
+              public void run(){
+                  while (true){
+                      System.out.println(Thread.currentThread().getId()+"----"+tickets.remove(0));
+                  }
+              }
+            }.start();
+        }
+    }
+
+    /**
+     * 所有集合都有一个快速失败 fast-failed 机制：当一个集合被多线程修改并访问时，就可能报下列异常
+     */
+    private static void threadTest() {
+        //火车票列表
+//        final List<String> tickets = new ArrayList<>();//Exception in thread "Thread-1" java.util.ConcurrentModificationException
+        final Vector<String> tickets = new Vector<>();//Exception in thread "Thread-1" java.util.ConcurrentModificationException
+        //初始化票据池
+        for (int i = 0; i < 10000; i++) {
+            tickets.add(i, "火车票 " + i);
+        }
+        //退票-匿名内部类
+        Thread returnThread = new Thread() {
+            public void run() {
+                while (true) {
+                    tickets.add("火车票 " + new Random().nextInt());
+                }
+            }
+        };
+        //售票
+        Thread saleThread = new Thread() {
+            public void run() {
+                for (String ticket : tickets) {
+                    tickets.remove(ticket);
+                }
+            }
+        };
+
+        //启动线程
+        returnThread.start();
+        saleThread.start();
+    }
+
+    /*
+     * map查找的效率是list的40倍
+     */
+    private static void FindSomthingTest() {
+        int size = 10000;
+        List<String> aList = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            aList.add("value" + i);
+        }
+        long startTime = System.nanoTime();//纳秒级别
+        //测试查找效率
+        aList.contains("value" + (size - 1));
+        long endTime = System.nanoTime();
+        System.out.println("list查找花费的时间 = " + (endTime - startTime) + "ns");
+
+        //测试map时间
+        Map<String, String> aMap = new HashMap<>(size);
+        for (int i = 0; i < size; i++) {
+            aMap.put("key" + i, "value" + i);
+        }
+        startTime = System.nanoTime();
+        aMap.containsKey("key" + (size - 1));
+//        aMap.containsValue("value" + (size - 1));
+        endTime = System.nanoTime();
+
+        System.out.println("map查找花费的时间 = " + (endTime - startTime) + "ns");
+    }
+
+    /**
+     * 获取当前时间
+     */
+    private static void getCurrentTimeTest() {
+        long time1 = System.nanoTime();
+        long time2 = new Date().getTime();
+        long time3 = System.currentTimeMillis();
+        System.out.println("time1 = " + time1);
+        System.out.println("time2 = " + time2);
+        System.out.println("time3 = " + time3);
+    }
+
+    /**
+     * 打乱列表-终级
+     */
+    private static void disrutpList() {
+        int tagNum = 10;
+        List<String> tagClouds = new ArrayList<>(tagNum);
+
+        Collections.shuffle(tagClouds);
+    }
+
+    /**
+     * 打乱列表-中级
+     */
+    private static void disruptListTest2() {
+        int tagNum = 10;
+        List<String> tagClouds = new ArrayList<>(tagNum);
+        Random random = new Random();//初始化标签云，一般从数据库中读入
+        for (int i = 0; i < tagNum; i++) {
+            int randomPosition = random.nextInt(tagNum);//获取随机数
+
+            Collections.swap(tagClouds, i, randomPosition);
+        }
+    }
+
+    /**
+     * 打乱列表-初级
+     */
+    private static void disruptListTest1() {
+        int tagNum = 10;
+        List<String> tagClouds = new ArrayList<>(tagNum);
+        Random random = new Random();//初始化标签云，一般从数据库中读入
+        for (int i = 0; i < tagNum; i++) {
+            int randomPosition = random.nextInt(tagNum);//获取随机数
+
+            String temp = tagClouds.get(i);//交换位置
+            tagClouds.set(i, tagClouds.get(randomPosition));
+            tagClouds.set(randomPosition, temp);
+        }
+    }
+
+    /**
+     * 无重复的并集
+     */
+    private static void allWithoutSame() {
+        List<String> aList = new ArrayList<>();
+        aList.add("a");
+        aList.add("b");
+
+        List<String> bList = new ArrayList<>();
+        bList.add("c");
+        bList.add("d");
+        bList.add("a");
+
+        aList.removeAll(bList);//求差集
+        bList.addAll(aList);
+        for (String s : bList) {
+            System.out.println(s);
+        }
+    }
+
+    /**
+     * 求差集
+     */
+    private static void removeAllTest() {
+        List<String> aList = new ArrayList<>();
+        aList.add("a");
+        aList.add("b");
+
+        List<String> bList = new ArrayList<>();
+        bList.add("c");
+        bList.add("d");
+
+        aList.removeAll(bList);//求差集
+        for (String s : aList) {
+            System.out.println(s);
+        }
+    }
+
+    /**
+     * 集合交集
+     */
+    private static void retainAllTest() {
+        List<String> aList = new ArrayList<>();
+        aList.add("a");
+        aList.add("b");
+
+        List<String> bList = new ArrayList<>();
+        bList.add("c");
+        bList.add("d");
+
+        aList.retainAll(bList);//求交集
+        for (String s : aList) {
+            System.out.println(s);
+        }
+    }
+
+    /**
+     * 集合并集
+     */
+    private static void addAllTest() {
+        List<String> aList = new ArrayList<>();
+        aList.add("a");
+        aList.add("b");
+
+        List<String> bList = new ArrayList<>();
+        bList.add("c");
+        bList.add("d");
+
+        aList.addAll(bList);//求并集
+        for (String s : aList) {
+            System.out.println(s);
+        }
+    }
+
+    private static void equalStepWithCompare() {
+        List<City> cityList = new ArrayList<>();
+        cityList.add(new City("021", "shanghai"));
+        cityList.add(new City("021", "hu"));
+
+        Collections.sort(cityList);//排序
+        //要查找的对象
+        City city = new City("021", "shanghai");
+
+        int index1 = cityList.indexOf(city);//走的是equals
+        int index2 = Collections.binarySearch(cityList, city);//走的是compareTo排序
+        System.out.println("index1 = " + index1 + " ||index2 = " + index2);
+    }
+
+    /**
+     * binarySerch: 使用的是二分法查找的算法，二分法查找的前提是list已经经过升序排序
+     * 解决的办法：先复制一个list 进行排序后 再使用binarySerch 即可得到和indexOf 相同的值
+     * 区别：indexOf 简单，直接，binarSearch 效率高，但是需要先排序
+     */
+    private static void searchList() {
+        List<String> cityList = new ArrayList<>();
+        cityList.add("beijing");
+        cityList.add("shanghai");
+        cityList.add("shanghai");
+        cityList.add("beijing2");
+        cityList.add("beijing2");
+
+        int index1 = cityList.indexOf("shanghai");
+        int index2 = Collections.binarySearch(cityList, "shanghai");
+        System.out.println("index1 = " + index1 + "||index2 = " + index2);
     }
 
     /**
@@ -48,16 +338,16 @@ public class Client {
      */
     private static void sortListByPositonAsc() {
         List<Employee> employeeList = new ArrayList<>(5);
-        employeeList.add(new Employee(10001,"zhangsan", Positon.Boss));
-        employeeList.add(new Employee(10002,"zhangsan", Positon.Manager));
-        employeeList.add(new Employee(10008,"zhangsan", Positon.Manager));
-        employeeList.add(new Employee(10004,"zhangsan", Positon.Staff));
-        employeeList.add(new Employee(10003,"zhangsan", Positon.Staff));
+        employeeList.add(new Employee(10001, "zhangsan", Positon.Boss));
+        employeeList.add(new Employee(10002, "zhangsan", Positon.Manager));
+        employeeList.add(new Employee(10008, "zhangsan", Positon.Manager));
+        employeeList.add(new Employee(10004, "zhangsan", Positon.Staff));
+        employeeList.add(new Employee(10003, "zhangsan", Positon.Staff));
 
         Collections.reverse(employeeList);//按照职位升序
 //       Collections.sort(employeeList,Collections.reverseOrder(new PositonComparator()));//按照职位升序
 
-        for (Employee employee:employeeList){
+        for (Employee employee : employeeList) {
             System.out.println(employee);
         }
     }
@@ -67,15 +357,15 @@ public class Client {
      */
     private static void sortListbyPositon() {
         List<Employee> employeeList = new ArrayList<>(5);
-        employeeList.add(new Employee(10001,"zhangsan", Positon.Boss));
-        employeeList.add(new Employee(10002,"zhangsan", Positon.Manager));
-        employeeList.add(new Employee(10008,"zhangsan", Positon.Manager));
-        employeeList.add(new Employee(10004,"zhangsan", Positon.Staff));
-        employeeList.add(new Employee(10003,"zhangsan", Positon.Staff));
+        employeeList.add(new Employee(10001, "zhangsan", Positon.Boss));
+        employeeList.add(new Employee(10002, "zhangsan", Positon.Manager));
+        employeeList.add(new Employee(10008, "zhangsan", Positon.Manager));
+        employeeList.add(new Employee(10004, "zhangsan", Positon.Staff));
+        employeeList.add(new Employee(10003, "zhangsan", Positon.Staff));
 
-        Collections.sort(employeeList,new PositonComparator());//按照职位降序
+        Collections.sort(employeeList, new PositonComparator());//按照职位降序
 
-        for (Employee employee:employeeList){
+        for (Employee employee : employeeList) {
             System.out.println(employee);
         }
     }
@@ -85,15 +375,15 @@ public class Client {
      */
     private static void sotListById() {
         List<Employee> employeeList = new ArrayList<>(5);
-        employeeList.add(new Employee(10001,"zhangsan", Positon.Boss));
-        employeeList.add(new Employee(10002,"zhangsan", Positon.Manager));
-        employeeList.add(new Employee(10008,"zhangsan", Positon.Manager));
-        employeeList.add(new Employee(10004,"zhangsan", Positon.Staff));
-        employeeList.add(new Employee(10003,"zhangsan", Positon.Staff));
+        employeeList.add(new Employee(10001, "zhangsan", Positon.Boss));
+        employeeList.add(new Employee(10002, "zhangsan", Positon.Manager));
+        employeeList.add(new Employee(10008, "zhangsan", Positon.Manager));
+        employeeList.add(new Employee(10004, "zhangsan", Positon.Staff));
+        employeeList.add(new Employee(10003, "zhangsan", Positon.Staff));
 
         Collections.sort(employeeList);//按照id进行排序
 
-        for (Employee employee:employeeList){
+        for (Employee employee : employeeList) {
             System.out.println(employee);
         }
     }
@@ -107,7 +397,7 @@ public class Client {
         oriList.add("lszhen");
         oriList.add("son");
 
-        List<String> subList = oriList.subList(0,2);
+        List<String> subList = oriList.subList(0, 2);
 
         oriList = Collections.unmodifiableList(oriList);//设置列表为只读状态
 
@@ -115,8 +405,8 @@ public class Client {
         // oriList.add("daughter");//在subList之后修改原list--设置为只读状态后就不允许对list进行修改了
 //        doSomethingRead(oriList);//对原表进行读操作
 //        doSomethingReadAndWrit(subList);//可以对子表进行读和写操作，但是创建了多个子表，则子表也不允许修改
-        System.out.println("ori's length="+oriList.size());
-        System.out.println("subList's length = "+ subList.size());
+        System.out.println("ori's length=" + oriList.size());
+        System.out.println("subList's length = " + subList.size());
     }
 
     /**
@@ -128,12 +418,12 @@ public class Client {
         oriList.add("lszhen");
         oriList.add("son");
 
-        List<String> subList = oriList.subList(0,2);
+        List<String> subList = oriList.subList(0, 2);
 
         oriList.add("daughter");//在subList之后修改原list
 
-        System.out.println("ori's length="+oriList.size());
-        System.out.println("subList's length = "+ subList.size());
+        System.out.println("ori's length=" + oriList.size());
+        System.out.println("subList's length = " + subList.size());
         //Exception in thread "main" java.util.ConcurrentModificationException
     }
 
@@ -141,9 +431,9 @@ public class Client {
      * 利用subList的特性实现列表内的元素的快速删除
      */
     private static void fastDelListElement() {
-        List<Integer> initList = Collections.nCopies(100,0);//初始化一个固定长度的不可变的列表
+        List<Integer> initList = Collections.nCopies(100, 0);//初始化一个固定长度的不可变的列表
         ArrayList<Integer> list = new ArrayList<>(initList);//转换为可变列表
-        list.subList(20,30).clear();//只需要一行代码即可删除 20～30 范围内的元素
+        list.subList(20, 30).clear();//只需要一行代码即可删除 20～30 范围内的元素
     }
 
     /**
