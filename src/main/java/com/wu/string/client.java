@@ -23,6 +23,18 @@ public class client {
 
 //        getSubString();//字符串截取
 //        getSubString2();//字符串截取2
+//        testNull();//测试空null 的连接
+
+
+    }
+
+    /**
+     * 试空null 的连接
+     */
+    private static void testNull() {
+        String s = null;
+        s += "abc";
+        System.out.println(s);
     }
 
     /**
