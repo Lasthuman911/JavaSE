@@ -1,5 +1,7 @@
 package com.wu.string;
 
+import org.apache.commons.lang3.*;
+
 import java.util.Date;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -24,6 +26,7 @@ public class client {
 //        getSubString();//字符串截取
 //        getSubString2();//字符串截取2
 //       testNull();//测试空null 的连接
+
 
 
     }
