@@ -105,4 +105,16 @@ public class CollectionUtil {
         }
         return sum / scores.size();
     }
+
+    /**
+     * list去除重复数据
+     * @param list
+     * @return
+     */
+    public static List<String> removeDuplicate(List<String> list) {
+        HashSet<String> h = new HashSet<String>(list);
+        list.clear();
+        list.addAll(h);
+        return list;
+    }
 }
