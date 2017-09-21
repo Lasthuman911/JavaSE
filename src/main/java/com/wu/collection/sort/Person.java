@@ -6,7 +6,7 @@ import org.apache.commons.lang3.builder.CompareToBuilder;
  * Created by lszhen on 2017/9/17.
  */
 public class Person implements Comparable<Person> {
-    private int height;//高度
+        private int height;//高度
 
     public int getHeight() {
         return height;
