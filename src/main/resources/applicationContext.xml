@@ -11,4 +11,14 @@
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
 
 
+    <!-- aop -->
+    <aop:aspectj-autoproxy />
+    <bean id="controllerAop" class="com.wu.temp.ControllerAOP" />
+    <aop:config>
+        <aop:aspect id="myAop" ref="controllerAop">
+            <aop:pointcut id="target"
+                          expression="execution(public com.wu.temp.ResultBean *(..))" />
+            <aop:around method="handlerControllerMethod" pointcut-ref="target" />
+        </aop:aspect>
+    </aop:config>
 </beans>    

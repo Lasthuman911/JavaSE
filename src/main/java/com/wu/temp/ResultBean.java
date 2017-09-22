@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 /**
  * 通用的返回接口
+ * 为什么要返回统一的一个ResultBean：
+ * 1.为了统一格式
+ * 2.为了应用AOP
+ * 3.为了包装异常信息
  * Created by zhiming.wu on 2017/9/19.
  */
 public class ResultBean<T> implements Serializable {
