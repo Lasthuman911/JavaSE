@@ -5,19 +5,4 @@
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
 
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/applicationContext.xml</param-value>
-    </context-param>
-
-    <servlet>
-        <servlet-name>HproseServlet</servlet-name>
-        <servlet-class>
-            com.wu.hprose.HproseServletDemo
-        </servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HproseServlet</servlet-name>
-        <url-pattern>/hproseservice</url-pattern>
-    </servlet-mapping>
 </web-app>
