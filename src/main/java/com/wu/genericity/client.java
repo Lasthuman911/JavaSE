@@ -43,7 +43,7 @@ public class client {
     }
 
     /**
-     * 可以声明带泛型参数的数组，但是不能初始化该数组
+     * 可以声明带泛型参数的**数组，但是不能初始化该数组
      */
     private static void test3() {
         List<String>[] listArray;

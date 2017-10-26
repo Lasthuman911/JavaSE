@@ -1,5 +1,6 @@
 package com.wu.string;
 
+import com.alibaba.fastjson.JSONArray;
 import org.apache.commons.lang3.*;
 
 import java.util.Date;
@@ -12,7 +13,7 @@ import java.util.regex.Pattern;
  */
 public class client {
     public static void main(String[] args) {
-        testEquals();//test1:字符串常量池-建议52：多使用直接量
+//        testEquals();//test1:字符串常量池-建议52：多使用直接量
 
 //        locationOfString();//建议55：注意字符串位置
 
@@ -23,9 +24,15 @@ public class client {
 //        splitTest();//初版简易的计算单词数
 //        wordCounts();//建议57：使用正则表达式统计单词个数
 
-//        getSubString();//字符串截取
+       getSubString();//字符串截取
 //        getSubString2();//字符串截取2
 //      testNull();//测试空null 的连接
+
+ /*       String jsonString = "[{a:123,b:[{b1:1},{b2:2}]}]";
+
+        JSONArray jsonArray = JSONArray.parseArray(jsonString);
+        System.out.println(jsonArray.size());
+        System.out.println("123");*/
     }
 
     /**
@@ -53,7 +60,7 @@ public class client {
      */
     private static void getSubString() {
         String str = "wzmhaha";
-        String subStr = str.substring(0, 3);
+        String subStr = str.substring(0, str.length());
         System.out.println(subStr);
     }
 
