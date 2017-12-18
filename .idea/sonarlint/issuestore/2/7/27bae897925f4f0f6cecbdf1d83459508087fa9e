@@ -1,0 +1,13 @@
+
+Vsquid:S1226"AIntroduce a new variable instead of reusing the parameter "text".(æö’â
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶­Ì¾ıÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‘Ğµß
+Vsquid:S1126"AReplace this if-then-else statement by a single return statement.(Ëø¬
+Vsquid:S1226"AIntroduce a new variable instead of reusing the parameter "text".(æö’â
+Tsquid:S1118":Add a private constructor to hide the implicit public one.(Íë¹’ûÿÿÿÿ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—òó†
+Vsquid:S1226"AIntroduce a new variable instead of reusing the parameter "text".(ĞĞŠĞ
+Vsquid:S1226"AIntroduce a new variable instead of reusing the parameter "text".(È«Ì·
+@squid:S1168"+Return an empty collection instead of null.(¥¹ï
+Vsquid:S1226"AIntroduce a new variable instead of reusing the parameter "text".(šç¬Ú
+msquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ö‹è)
