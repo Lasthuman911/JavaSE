@@ -1,4 +1,6 @@
-package pattern.strategy.re;
+package pattern.strategy.re.fly;
+
+import pattern.strategy.re.fly.FlyBehavier;
 
 /**
  * Created by lszhen on 2017/12/17.

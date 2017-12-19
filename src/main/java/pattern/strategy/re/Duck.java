@@ -1,5 +1,8 @@
 package pattern.strategy.re;
 
+import pattern.strategy.re.fly.FlyBehavier;
+import pattern.strategy.re.quark.QuarkBehavier;
+
 /**
  * Created by lszhen on 2017/12/17.
  */
