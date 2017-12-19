@@ -1,51 +1,51 @@
 
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(¼Œ²ıÿÿÿÿÿ
-:squid:S2129" Remove this "String" constructor(ˆòˆ•şÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÍæÍòûÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(òè¡Šûÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÍæÍòûÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(ó…‘
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÍæÍòûÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(€ÿĞĞ
+Qsquid:UnusedPrivateMethod".Remove this unused private "splitTest" method.(û’â¦
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(‹åŸÏúÿÿÿÿ8İÖ¸Ç„,
+]squid:UnusedPrivateMethod"5Remove this unused private "locationOfString" method.(©Ë„øÿÿÿÿ
 R
 squid:S106"9Replace this use of System.out or System.err by a logger.(”Ì­¦ıÿÿÿÿ
+:squid:S2129" Remove this "String" constructor(ˆòˆ•şÿÿÿÿ
 R
 squid:S106"9Replace this use of System.out or System.err by a logger.(…‡ûÿÿÿÿ
 Tsquid:UnusedPrivateMethod"2Remove this unused private "testCostTime1" method.(¿½!
-Qsquid:UnusedPrivateMethod".Remove this unused private "splitTest" method.(û’â¦
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(Û–¬Ä
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Å­Ëİúÿÿÿÿ8İÖ¸Ç„,
+Ysquid:UnusedPrivateMethod"/Remove this unused private "testEquals" method.(âèö8İÖ¸Ç„,
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(€ÿĞĞ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(¼Œ²ıÿÿÿÿÿ
+Qsquid:UnusedPrivateMethod"/Remove this unused private "wordCounts" method.(óôÖ/
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(áÚãÿ
 R
 squid:S106"9Replace this use of System.out or System.err by a logger.(òè¡Šûÿÿÿÿ
 Bsquid:S1481"(Remove this unused "str" local variable.(ûÍÇÉøÿÿÿÿ
-:squid:S2129" Remove this "String" constructor(¢‹Ìáıÿÿÿÿ
-1squid:S1643"Use a StringBuilder instead.(±Ç¦²
-Qsquid:UnusedPrivateMethod"/Remove this unused private "wordCounts" method.(óôÖ/
 M
-squid:S106"9Replace this use of System.out or System.err by a logger.(Û–¬Ä
+squid:S106"9Replace this use of System.out or System.err by a logger.(ó…‘
 R
 squid:S106"9Replace this use of System.out or System.err by a logger.(ÊìÿÆşÿÿÿÿ
 R
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÍæÍòûÿÿÿÿ
+R
 squid:S106"9Replace this use of System.out or System.err by a logger.(°Ì»¸úÿÿÿÿ
 Zsquid:UnusedPrivateMethod"2Remove this unused private "testCostTime2" method.(Ó¬ö“ûÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(áÚãÿ
 Usquid:UnusedPrivateMethod"2Remove this unused private "testCostTime3" method.(¢é
-]squid:UnusedPrivateMethod"5Remove this unused private "locationOfString" method.(©Ë„øÿÿÿÿ
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¤Ü Ğùÿÿÿÿ8İÖ¸Ç„,
+fsquid:S3027"JPut single-quotes around '.' to use the faster "lastIndexOf(char)" method.(‰ÅÜ”8İÖ¸Ç„,
 \squid:UnusedPrivateMethod"-Remove this unused private "testNull" method.(Â¸ğ¬ùÿÿÿÿ8İÖ¸Ç„,
 asquid:UnusedPrivateMethod"2Remove this unused private "getSubString2" method.(„¸„§øÿÿÿÿ8İÖ¸Ç„,
-Ysquid:UnusedPrivateMethod"/Remove this unused private "testEquals" method.(âèö8İÖ¸Ç„,
-fsquid:S3027"JPut single-quotes around '.' to use the faster "lastIndexOf(char)" method.(‰ÅÜ”8İÖ¸Ç„,
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¤Ü Ğùÿÿÿÿ8İÖ¸Ç„,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(Å­Ëİúÿÿÿÿ8İÖ¸Ç„,
+1squid:S1643"Use a StringBuilder instead.(±Ç¦²
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÍæÍòûÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(òè¡Šûÿÿÿÿ
 Y
 squid:S106"9Replace this use of System.out or System.err by a logger.(Ïø¢›ıÿÿÿÿ8İÖ¸Ç„,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(‹åŸÏúÿÿÿÿ8İÖ¸Ç„,
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÍæÍòûÿÿÿÿ
+:squid:S2129" Remove this "String" constructor(¢‹Ìáıÿÿÿÿ
 jsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ËÕÉ‰8İÖ¸Ç„,

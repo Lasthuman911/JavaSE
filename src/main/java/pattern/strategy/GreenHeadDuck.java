@@ -10,6 +10,9 @@ public class GreenHeadDuck extends Duck {
         System.out.println("i am greenHead");
     }
 
+    /**
+     * 不会飞，那就只能覆盖父类的方法
+     */
     @Override
     public void fly(){
         System.out.println("i can't fly");

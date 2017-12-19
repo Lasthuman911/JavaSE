@@ -1,6 +1,7 @@
 package pattern.strategy.re;
 
 /**
+ * 测试
  * Created by lszhen on 2017/12/17.
  */
 public class Client {

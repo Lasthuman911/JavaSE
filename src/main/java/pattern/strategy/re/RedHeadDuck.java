@@ -12,6 +12,9 @@ public class RedHeadDuck extends Duck{
         System.out.println(" i am red Head");
     }
 
+    /**
+     * 在构造方法中，初始化具体的飞行模式和叫声方式
+     */
     public RedHeadDuck() {
         flyBehavier = new ButtonFly();
         quarkBehavier = new GuguQuark();

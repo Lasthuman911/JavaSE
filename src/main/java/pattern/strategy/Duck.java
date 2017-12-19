@@ -10,7 +10,6 @@ public abstract class Duck {
     }
 
     /**
-
      * 公共的guagua叫方法
      */
     public void quark() {
@@ -26,6 +25,9 @@ public abstract class Duck {
      */
     public abstract void display();
 
+    /**
+     * 新需求，需要添加fly方法
+     */
     public void fly(){
         System.out.println("i can fly");
     }
